@@ -145,8 +145,8 @@ public class metodos {
                 System.out.println("Digite el numero correctamente.");
                 break;
         }
-
-
+    
+        teclado.close();
     }
 
 }
