@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class metodos {
     /**
      Ejercicio 1: Cálculo de precios con descuento Escribe un metodo que reciba el precio de un producto y el 
@@ -5,9 +7,9 @@ public class metodos {
      descuento 20, el metodo retorna que el precio final con descuento es de 240.
      */
 
-    public float descuento (float descuento, float precio){
-        float descuentoFinal = precio * (descuento / 100);
-        float precioFinal = precio - descuentoFinal;
+    public double descuento (double descuento, double precio){
+        double descuentoFinal = precio * (descuento / 100);
+        double precioFinal = precio - descuentoFinal;
         return precioFinal;
     }
 
@@ -16,8 +18,8 @@ public class metodos {
      de calculo y retorne el cálculo del perímetro (suma de los lados) o el área (base por altura).
      */
 
-    public float calculo (float ladoA, float ladoB, byte tipo){
-        float resultado;
+    public double calculo (double ladoA, double ladoB, int tipo){
+        double resultado;
         if (tipo == 1){ //perimetro
             resultado = (ladoA + ladoB) * 2;
         } else if (tipo == 2) { //area
@@ -45,14 +47,14 @@ public class metodos {
      (pi*r2 ) o el volumen de la esfera (V = 4*pi*r3 /3).
      */
 
-    public double circunferencia (float radio, byte tipoCalculo){
+    public double circunferencia (float radio, int tipoCalculo){
         double resultado = 0;
         if (tipoCalculo == 1){ //perimetro
             resultado = 2 * Math.PI * radio;
         } else if (tipoCalculo == 2) { //area
             resultado = Math.PI * Math.pow(radio, 2);
         } else if (tipoCalculo == 3){ //volumen
-            resultado = (4 / 3) * Math.PI * Math.pow(radio, 3);
+            resultado = (4 * Math.PI * Math.pow(radio, 3))/3;
         } else {
             return 0;
         }
@@ -64,12 +66,12 @@ public class metodos {
      la cantidad de segundos totales que son esos datos.
      */
 
-    public float segundos (int dias, float horas, float minutos){
-        float segundosDias = dias * 86400;
-        float segundosHoras = horas * 3600;
-        float segundosMinutos = minutos * 60;
+    public double segundos (int dias, double horas, double minutos){
+        double segundosDias = dias * 86400;
+        double segundosHoras = horas * 3600;
+        double segundosMinutos = minutos * 60;
 
-        float segundosTotales = segundosDias + segundosHoras + segundosMinutos;
+        double segundosTotales = segundosDias + segundosHoras + segundosMinutos;
 
         return segundosTotales;
     }
@@ -78,8 +80,8 @@ public class metodos {
      Ejercicio 6: Pasar de segundos a días, horas y minutos. Escribe un metodo que reciba los segundos y el tipo, y le retorne el número de días o horas o minutos
      */
 
-    public float segundos2 (float segundos, byte tipo){
-        float resultado = 0;
+    public double segundos2 (double segundos, int tipo){
+        double resultado = 0;
         switch (tipo) {
             case 1: //dias
                 resultado = segundos / 86400;
@@ -95,4 +97,56 @@ public class metodos {
         } 
         return resultado;
     }
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner (System.in);
+        System.out.print("Digite el numero del metodo a ejecutar: ");
+        byte tipo = teclado.nextByte();
+        metodos metodos = new metodos(); 
+
+        switch (tipo) {
+            case 1:
+                double precioFinal = metodos.descuento(20, 300); 
+                System.out.println("Precio final con descuento: " + precioFinal);
+                double precioFinal2 = metodos.descuento(50, 500); 
+                System.out.println("Precio final con descuento: " + precioFinal2);
+                break;
+            case 2:
+                double calculo = metodos.calculo(5, 10, 1); 
+                System.out.println("Perimetro del rectangulo: " + calculo);
+                double calculo2 = metodos.calculo(5, 10, 2); 
+                System.out.println("Area del rectangulo: " + calculo2);
+                break;
+            case 3:
+                double cambio = metodos.cambio(50); 
+                System.out.println("El cambio de dolares a euros es: " + cambio);
+                double cambio2 = metodos.cambio(25); 
+                System.out.println("El cambio de dolares a euros es: " + cambio2); 
+                break;
+            case 4:
+                double circunferencia = metodos.circunferencia(7, 1); 
+                System.out.println("El perimetro de la circunferencia es: " + circunferencia);
+                double circunferencia2 = metodos.circunferencia(10, 3); 
+                System.out.println("El volumen de la circuferencia es: " + circunferencia2); 
+                break;
+            case 5:
+                double segundos = metodos.segundos(4, 3, 56); 
+                System.out.println("La cantidad de segundos es: " + segundos);
+                double segundos2 = metodos.segundos(10, 9.6, 20); 
+                System.out.println("La cantidad de segundos es: " + segundos2); 
+                break;  
+            case 6:
+                double segundosF = metodos.segundos2(76540, 2); 
+                System.out.println("La cantidad de horas es: " + segundosF );
+                double segundosF2 = metodos.segundos2(87652398, 1); 
+                System.out.println("La cantidad de dias es: " + segundosF2); 
+                break;
+            default:
+                System.out.println("Digite el numero correctamente.");
+                break;
+        }
+
+
+    }
+
 }
