@@ -105,37 +105,37 @@ public class metodos {
         metodos metodos = new metodos(); 
 
         switch (tipo) {
-            case 1:
+            case 1: //1 metodo
                 double precioFinal = metodos.descuento(20, 300); 
                 System.out.println("Precio final con descuento: " + precioFinal);
                 double precioFinal2 = metodos.descuento(50, 500); 
                 System.out.println("Precio final con descuento: " + precioFinal2);
                 break;
-            case 2:
+            case 2: //2 metodo
                 double calculo = metodos.calculo(5, 10, 1); 
                 System.out.println("Perimetro del rectangulo: " + calculo);
                 double calculo2 = metodos.calculo(5, 10, 2); 
                 System.out.println("Area del rectangulo: " + calculo2);
                 break;
-            case 3:
+            case 3: //metodo
                 double cambio = metodos.cambio(50); 
                 System.out.println("El cambio de dolares a euros es: " + cambio);
                 double cambio2 = metodos.cambio(25); 
                 System.out.println("El cambio de dolares a euros es: " + cambio2); 
                 break;
-            case 4:
+            case 4: //4 metodo
                 double circunferencia = metodos.circunferencia(7, 1); 
                 System.out.println("El perimetro de la circunferencia es: " + circunferencia);
                 double circunferencia2 = metodos.circunferencia(10, 3); 
                 System.out.println("El volumen de la circuferencia es: " + circunferencia2); 
                 break;
-            case 5:
+            case 5: //5 metodo
                 double segundos = metodos.segundos(4, 3, 56); 
                 System.out.println("La cantidad de segundos es: " + segundos);
                 double segundos2 = metodos.segundos(10, 9.6, 20); 
                 System.out.println("La cantidad de segundos es: " + segundos2); 
                 break;  
-            case 6:
+            case 6: //6 metodo
                 double segundosF = metodos.segundos2(76540, 2); 
                 System.out.println("La cantidad de horas es: " + segundosF );
                 double segundosF2 = metodos.segundos2(87652398, 1); 
